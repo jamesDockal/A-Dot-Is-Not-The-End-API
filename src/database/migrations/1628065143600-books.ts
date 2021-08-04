@@ -23,7 +23,7 @@ export class books1628065143600 implements MigrationInterface {
 
           {
             name: "chapters",
-            type: "jso[]",
+            type: "jsonb",
             isNullable: false,
           },
         ],

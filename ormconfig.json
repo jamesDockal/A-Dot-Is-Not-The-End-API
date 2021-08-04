@@ -3,7 +3,7 @@
   "host": "localhost",
   "port": "5432",
   "username": "postgres",
-  "password": "",
+  "password": "123arvore",
   "database": "testes",
   "migrations": ["src/database/migrations/*.ts"],
   "entities": ["src/entities/*.ts"],

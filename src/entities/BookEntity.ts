@@ -1,5 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
+type IChapter = {
+  title: string;
+  content: string;
+};
+
 @Entity("books")
 class BookEntity {
   @PrimaryGeneratedColumn("uuid")
@@ -9,7 +14,6 @@ class BookEntity {
   title: string;
 
   @Column("json", { array: true })
-  chapters: JSON[];
+  chapters: IChapter[];
 }
-
 export default BookEntity;
