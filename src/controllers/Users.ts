@@ -15,6 +15,7 @@ class UsersController {
       password_hash,
       email,
     });
+    userRepository.save(user);
 
     return res.json({ user });
   }
