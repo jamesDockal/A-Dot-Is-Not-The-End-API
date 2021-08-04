@@ -37,6 +37,8 @@ class UsersMiddleware {
       return res.status(400).json({ error: "User not found" });
     }
 
+    res.locals.user = user;
+
     return next();
   }
 }

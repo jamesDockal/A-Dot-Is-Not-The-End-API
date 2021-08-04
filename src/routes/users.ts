@@ -4,10 +4,17 @@ import UsersMiddleware from "../middlewares/User";
 
 const UsersRouter = Router();
 
-const { register } = new UsersController();
+const { register, login } = new UsersController();
 
-const { registerCrendentials, userExists } = new UsersMiddleware();
+const { registerCrendentials, userAlredyRegistered, userExists } =
+  new UsersMiddleware();
 
-UsersRouter.post("/register", registerCrendentials, userExists, register);
+UsersRouter.post(
+  "/register",
+  registerCrendentials,
+  userAlredyRegistered,
+  register
+);
+UsersRouter.post("/login", registerCrendentials, userExists, login);
 
 export default UsersRouter;
