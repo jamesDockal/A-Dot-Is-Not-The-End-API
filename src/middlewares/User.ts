@@ -74,7 +74,6 @@ class UsersMiddleware {
         .status(400)
         .json({ error: "Token bad formated, it should be 'Bearer ...token" });
     }
-
     // validate the token
     try {
       const secretKey = process.env.SECRET_KEY || "some_secret_key";

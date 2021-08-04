@@ -1,6 +1,2 @@
-
-
-# Node.js dependency directory
+ormconfig.json
 node_modules/
-
-src/database/database.sqlite

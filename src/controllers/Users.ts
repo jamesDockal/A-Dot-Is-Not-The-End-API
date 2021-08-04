@@ -5,7 +5,7 @@ import { hash, compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 
 type IUser = {
-  id: string;
+  uuid: string;
   email: string;
   password_hash: string;
 };
@@ -23,10 +23,11 @@ class UsersController {
         password_hash,
         email,
       });
+
       await userRepository.save(user);
 
       const secretKey = process.env.SECRET_KEY || "some_secret_key";
-      const token = await sign(user.id, secretKey);
+      const token = await sign(user.uuid, secretKey);
 
       return res.json({
         user: {
@@ -50,7 +51,7 @@ class UsersController {
       }
 
       const secretKey = process.env.SECRET_KEY || "some_secret_key";
-      const token = await sign(user.id, secretKey);
+      const token = await sign(user.uuid, secretKey);
 
       return res.json({
         token,
