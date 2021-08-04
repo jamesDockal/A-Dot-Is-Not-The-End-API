@@ -1,4 +1,6 @@
 import { Request, Response, NextFunction } from "express";
+import { getRepository } from "typeorm";
+import BookEntity from "../entities/BookEntity";
 
 class BooksMiddleware {
   async bookCredentials(req: Request, res: Response, next: NextFunction) {
@@ -29,6 +31,18 @@ class BooksMiddleware {
     } catch (error) {
       return res.status(400).json({
         error: error.message,
+      });
+    }
+    return next();
+  }
+  async titleInUse(req: Request, res: Response, next: NextFunction) {
+    const { title, chapters } = req.body;
+
+    const booksRepository = await getRepository(BookEntity);
+    const book = await booksRepository.find({ title });
+    if (book) {
+      return res.status(400).json({
+        error: "The title of the book is alredy in use",
       });
     }
     return next();

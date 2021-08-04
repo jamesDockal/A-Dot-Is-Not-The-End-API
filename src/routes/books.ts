@@ -7,13 +7,13 @@ const BooksRouter = Router();
 
 const { getAllBooks, createBook } = new BooksController();
 
-const { bookCredentials } = new BooksMiddleware();
+const { bookCredentials, titleInUse } = new BooksMiddleware();
 
 const { isLogged } = new UsersMiddleware();
 
 BooksRouter.get("/", isLogged, getAllBooks);
 
 // create book
-BooksRouter.post("/", isLogged, bookCredentials, createBook);
+BooksRouter.post("/", isLogged, bookCredentials, titleInUse, createBook);
 
 export default BooksRouter;
