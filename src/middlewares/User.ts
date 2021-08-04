@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-class UserMiddleware {
+class UsersMiddleware {
   registerCrendentials(req: Request, res: Response, next: NextFunction) {
     const { username, password, email } = req.body;
 
@@ -17,4 +17,4 @@ class UserMiddleware {
   }
 }
 
-export default UserMiddleware;
+export default UsersMiddleware;
