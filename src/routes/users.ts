@@ -6,8 +6,8 @@ const UsersRouter = Router();
 
 const { register } = new UsersController();
 
-const { registerCrendentials } = new UsersMiddleware();
+const { registerCrendentials, userExists } = new UsersMiddleware();
 
-UsersRouter.post("/register", registerCrendentials, register);
+UsersRouter.post("/register", registerCrendentials, userExists, register);
 
 export default UsersRouter;
