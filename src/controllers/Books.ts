@@ -4,11 +4,15 @@ import BookEntity from "../entities/BookEntity";
 
 class BooksController {
   async getAllBooks(req: Request, res: Response) {
-    const booksRepository = await getRepository(BookEntity);
+    try {
+      const booksRepository = await getRepository(BookEntity);
 
-    const books = await booksRepository.find();
+      const books = await booksRepository.find();
 
-    return res.send({ books });
+      return res.send({ books });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
 
   async createBook(req: Request, res: Response) {

@@ -11,7 +11,7 @@ const { bookCredentials, titleInUse } = new BooksMiddleware();
 
 const { isLogged } = new UsersMiddleware();
 
-BooksRouter.get("/", isLogged, getAllBooks);
+BooksRouter.get("/", getAllBooks);
 
 // get book by title
 BooksRouter.get("/:title", isLogged, findByTitle);
