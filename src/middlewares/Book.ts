@@ -36,10 +36,11 @@ class BooksMiddleware {
     return next();
   }
   async titleInUse(req: Request, res: Response, next: NextFunction) {
-    const { title, chapters } = req.body;
+    const { title } = req.body;
 
     const booksRepository = await getRepository(BookEntity);
-    const book = await booksRepository.find({ title });
+    const book = await booksRepository.findOne({ title });
+
     if (book) {
       return res.status(400).json({
         error: "The title of the book is alredy in use",

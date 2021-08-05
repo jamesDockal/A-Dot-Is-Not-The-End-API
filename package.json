@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node lib/index.js",
     "start:dev": "ts-node-dev src/index.ts --watch",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
@@ -11,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
