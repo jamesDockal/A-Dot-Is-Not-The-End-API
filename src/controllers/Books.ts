@@ -29,6 +29,20 @@ class BooksController {
       return res.status(500).json({ error: err.message });
     }
   }
+
+  async findByTitle(req: Request, res: Response) {
+    const { title } = req.params;
+
+    const booksRepository = await getRepository(BookEntity);
+    const book = await booksRepository.findOne({ title });
+    if (!book) {
+      return res.status(400).json({
+        error: "Book not found",
+      });
+    }
+
+    return res.json({ book });
+  }
 }
 
 export default BooksController;
