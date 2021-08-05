@@ -1,5 +1,6 @@
 import express from "express";
 import UsersRouter from "./routes/users";
+import cors from "cors";
 
 import "./database";
 console.log();
@@ -15,6 +16,7 @@ console.log("PORT", process.env.PORT);
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => res.send("ok"));
 
