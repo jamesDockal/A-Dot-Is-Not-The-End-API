@@ -4,11 +4,11 @@ dotenv.config();
 
 createConnection({
   type: "postgres",
-  host: "localhost",
+  host: process.env.HOST,
   port: 5432,
-  username: "postgres",
-  password: process.env.POSTGRESS_PASSWORD,
-  database: "testes",
+  username: process.env.USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DATABASE,
   migrations: ["lib/database/migrations/*.js"],
   entities: ["lib/entities/*.js"],
   cli: {
