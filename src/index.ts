@@ -1,8 +1,8 @@
 import express from "express";
-import UsersRouter from "./routes/users";
+// import UsersRouter from "./routes/users";
 
 // import "./database";
-import BooksRouter from "./routes/books";
+// import BooksRouter from "./routes/books";
 
 import dotenv from "dotenv";
 dotenv.config({
