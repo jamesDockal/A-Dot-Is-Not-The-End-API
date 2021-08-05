@@ -7,6 +7,7 @@ console.log("teste:", process.env.DATABASE_URL);
 console.log("teste:", process.env.TESTE);
 module.exports = {
   type: "postgres",
+  ssl: { rejectUnauthorized: false },
   url: process.env.DATABASE_URL,
   migrations: ["lib/database/migrations/*.js"],
   entities: ["lib/entities/*.js"],

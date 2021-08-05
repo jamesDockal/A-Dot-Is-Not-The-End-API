@@ -2,6 +2,8 @@ import express from "express";
 import UsersRouter from "./routes/users";
 
 import "./database";
+console.log();
+
 import BooksRouter from "./routes/books";
 
 import dotenv from "dotenv";
