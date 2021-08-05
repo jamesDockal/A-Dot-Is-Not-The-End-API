@@ -3,7 +3,6 @@ import UsersRouter from "./routes/users";
 import cors from "cors";
 
 import "./database";
-console.log();
 
 import BooksRouter from "./routes/books";
 
